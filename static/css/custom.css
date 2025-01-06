@@ -1,0 +1,75 @@
+
+.card-body, .card {
+  height: 100%;
+}
+
+/* General Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Collapse borders between cells */
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  padding: 12px 15px; /* Add padding for better readability */
+  text-align: left; /* Align text to the left */
+  border: 1px solid #ddd; /* Light border for cells */
+}
+
+th {
+  background-color: transparent; /* Green background for table headers */
+  color: white; /* White text color for headers */
+}
+
+tr:nth-child(even) {
+  background-color: transparent; /* Light gray background for even rows */
+}
+
+tr:hover {
+  background-color: #ddd;
+  color: black; /* Darker background when hovering over a row */
+}
+
+caption {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Style for table headers */
+th {
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase; /* Make header text uppercase */
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 768px) {
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  th, td {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: .75rem;
+}
+
+.my-5 {
+  margin-top: 8rem !important;
+  margin-bottom: 3rem !important;
+}
+
