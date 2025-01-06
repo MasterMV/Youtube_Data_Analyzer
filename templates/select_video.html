@@ -1,0 +1,33 @@
+{% extends "comment.html" %}
+
+{% block content %}
+
+  <p><h2 class="card-title">Analyse Video Comments</h2></p>
+  <p></p>
+  <p><h5 class="card-title">Search Results for "{{ query }}"</h5></p>
+  <p></p>
+
+  <!-- The row container for the grid -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+  
+    {% for item in query_result['items'] %}
+      <div class="col">
+        <div class="card">
+          <a href="https://www.youtube.com/watch?v={{ item['id']['videoId'] }}">
+            <img src="{{ item['snippet']['thumbnails']['medium']['url'] }}" class="card-img-top" alt="{{ item['snippet']['title'] }}">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ item['snippet']['title'] }}</h5>
+            <p class="card-text">Channel: {{ item['snippet']['channelTitle'] }}</p>
+            <p class="card-text">Comments: {{ item['statistics']['commentCount'] }}</p>
+            <p class="card-text">Likes: {{ item['statistics']['likeCount'] }}</p>
+            <p class="card-text">Dislikes: {{ item['statistics']['dislikeCount'] }}</p>
+            <a href="/video_comments?video_id={{ item['id']['videoId'] }}" class="btn btn-outline-light btn-lg px-4 me-md-2 fw-boldy">See video comment analysis</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div> <!-- End of row -->
+
+{% endblock content %}

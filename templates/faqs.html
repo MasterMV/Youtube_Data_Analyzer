@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <style>
+
+.accordion {
+  .accordion-item {
+    border: none;
+    button[aria-expanded='true'] {
+    }
+  }
+  button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    border: none;
+    background: none;
+    outline: none;
+    &:hover, &:focus {
+      cursor: pointer;
+      color: $blue;
+      &::after {
+        cursor: pointer;
+      }
+    }
+    .accordion-title {
+      padding: 1em 1.5em 1em 0;
+    }
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+      &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 9px;
+        left: 5px;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+    }
+  }
+  button[aria-expanded='true'] {
+    color: $blue;
+    .icon {
+      &::after {
+        width: 0;
+      }
+    }
+    + .accordion-content {
+      opacity: 1;
+      max-height: 9em;
+      transition: all 200ms linear;
+      will-change: opacity, max-height;
+    }
+  }
+  .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 2em 0;
+    }
+  }
+}
+    </style>
+    <script defer src="{{ url_for('static', filename='js/load-nav.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/faqs.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>YouTube Data Analytics Tools</title>
+  </head>
+  <body data-bs-theme="dark">
+    
+    <div class="navbar-container"></div>
+    
+        <div class="container" style="margin-top: 7rem">
+            <h1 class="display-5 pb-4 border-bottom fw-bold text-body-emphasis lh-1 mb-3" >Frequently Asked Questions.</h1>
+            <div class="accordion mt-4">
+              <div class="accordion-item">
+                <button id="accordion-button-1" aria-expanded="false"><h2 style="font-size: 25px;">What is a YouTube Data Analyzer?</h2><span class="icon" aria-hidden="true"></span></button>
+                <div class="accordion-content">
+                  <h2 style="font-size: 20px;">A YouTube Data Analyzer is a tool that provides insights into YouTube channel and video performance. It analyzes metrics like views, likes, comments, and engagement rates, helping users optimize their content strategy and understand audience preferences.</h2>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button id="accordion-button-2" aria-expanded="false"><h2 style="font-size: 25px;">How can I use this tool to improve my YouTube channel?</h2><span class="icon" aria-hidden="true"></span></button>
+                <div class="accordion-content">
+                  <h2 style="font-size: 20px;">You can use our analyzer to identify your top-performing videos, understand viewer engagement trends, and track your channel's growth over time. This information can guide you in creating more engaging content and targeting the right audience.</h2>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button id="accordion-button-3" aria-expanded="false"><h2 style="font-size: 25px;">Can I analyze specific videos or channels other than my own?</h2><span class="icon" aria-hidden="true"></span></button>
+                <div class="accordion-content">
+                  <h2 style="font-size: 20px;">Yes, our tool allows you to analyze publicly available data for any video or channel on YouTube. Simply provide the channel ID or video URL, and you'll receive detailed analytics.</h2>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button id="accordion-button-4" aria-expanded="false"><h2 style="font-size: 25px;">What types of metrics are provided by this analyzer?</h2><span class="icon" aria-hidden="true"></span></button>
+                <div class="accordion-content">
+                  <h2 style="font-size: 20px;">We offer metrics such as views, likes, dislikes, comments, engagement rates, audience demographics, and trends over time. You can also explore keyword analysis and performance insights for better SEO optimization.</h2>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button id="accordion-button-5" aria-expanded="false"><h2 style="font-size: 25px;">Is my YouTube account data safe while using this tool?</h2><span class="icon" aria-hidden="true"></span></button>
+                <div class="accordion-content">
+                  <h2 style="font-size: 20px;">Absolutely. We only use publicly available YouTube data for analysis. If you choose to connect your YouTube account for personalized insights, we ensure that your information is handled securely and never shared with third parties.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container border-top fixed bottom">
+            <footer class="py-3 my-4">
+              <ul class="nav justify-content-center  pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact Us</a></li>
+              </ul>
+              <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+            </footer>
+          </div>
+  </body>
+</html>

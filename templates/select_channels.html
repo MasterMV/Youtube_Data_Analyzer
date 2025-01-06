@@ -1,0 +1,45 @@
+{% extends "channel.html" %}
+{% block content %}
+
+  <p><h2 class="card-title">Please Select the Channels You Want to Analyze</h2></p>
+
+  <form action="/channels" method="post">
+
+    {% for query in query_results %}
+      <p><h5 class="card-title">Search Results for "{{ query }}"</h5></p>
+
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        {% for item in query_results[query]['items'] %}
+          <div class="col">
+            <div class="card">
+              <a href="https://www.youtube.com/channel/{{ item['snippet']['channelId'] }}">
+                <img src="{{ item['snippet']['thumbnails']['medium']['url'] }}" class="card-img-top" alt="{{ item['snippet']['title'] }}">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">{{ item['snippet']['title'] }}</h5>
+                <p class="card-text">Description: {{ item['snippet']['description'] }}</p>
+                <p>
+                  <input
+                    type="radio"
+                    name="{{ query }}"
+                    id="{{ item['snippet']['channelId'] }}"
+                    value="{{ item['snippet']['channelId'] }}">
+                  <label for="{{ item['snippet']['channelId'] }}">Select this channel</label>
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <hr>
+    {% endfor %}
+
+    <p class="text-center">
+      <input type="submit" class="btn btn-outline-light btn-lg px-4 me-md-2 fw-boldy" value="Compare Channels Now">
+    </p>
+
+  </form>
+
+{% endblock content %}
+ 

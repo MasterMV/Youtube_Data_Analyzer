@@ -1,0 +1,13 @@
+{% extends "comment.html" %}
+{% block content %}
+<p></p>
+<p><h2 class="pb-3 border-bottom text-center">Video Comments Report</h2></p>
+<p></p>
+
+  {% for image_name in image_names %}
+  <p></p>
+  <p><img class="rounded mx-auto d-block" src='{{ image_name }}' alt=""></p>
+  <p></p>
+  {% endfor %}
+
+{% endblock content %}

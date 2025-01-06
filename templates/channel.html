@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <script defer src="{{ url_for('static', filename='js/load-nav.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>YouTube Data Analytics Tools</title>
+  </head>
+  <body data-bs-theme="dark">
+    
+    <div class="navbar-container"></div>
+    
+    <div class="container">
+      <h2 class="pb-3 border-bottom text-center" style="font-size: 40px; margin-top: 7rem;">Channel Insights Comparator</h2>
+      <p></p>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card bg-body-secondary">
+            <div class="card-body">
+              <div>
+
+                <h5 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" style="font-size: 30px">Compare Channels</h5>
+                <p class="lead text-body-emphasis">Please enter the names of channels you want to compare.</p>
+
+                <form class="" action="/select_channels">
+                  <p><input class="form-control" type="text" name="channel_id_1"></p>
+                  <p><input class="form-control" type="text" name="channel_id_2"></p>
+                  <p><input class="form-control" type="text" name="channel_id_3"></p>
+                  <button name="button" class="btn btn-outline-light btn-lg px-4 me-md-2 fw-bold">Search Channels </button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card bg-body-secondary">
+            <div class="card-body">
+              <div class="test">
+
+                <h5 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" style="font-size: 30px">Description:</h5>
+                <p class="lead text-body-emphasis">Our Channel Comparison Tool offers a side-by-side analysis of 
+                  multiple YouTube channels, evaluating key metrics like views, subscribers, and engagement. It helps 
+                  you identify trends, benchmark performance, and uncover opportunities for growth and optimization.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+
+      {% block content %}{% endblock %}
+
+    </div>
+  </body>
+</html>
